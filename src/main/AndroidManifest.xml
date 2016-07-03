@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.piotr.weatherforpoznan"
+          package="com.piotr.weather"
           android:installLocation="auto">
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -10,13 +10,13 @@
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
-            android:name="com.piotr.weatherforpoznan.WeatherApplication"
+            android:name="com.piotr.weather.WeatherApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
         <activity
-                android:name="com.piotr.weatherforpoznan.view.MainActivity_"
+                android:name="com.piotr.weather.view.MainActivity_"
                 android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -30,21 +30,21 @@
                 android:value="Database.db"/>
         <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.piotr.weatherforpoznan.view.DetailsActivity_"/>
+                android:value="com.piotr.weather.view.DetailsActivity_"/>
 
         <activity
-                android:name="com.piotr.weatherforpoznan.view.DetailsActivity_"
+                android:name="com.piotr.weather.view.DetailsActivity_"
                 android:label="@string/title_activity_details"
                 android:theme="@style/AppTheme.NoActionBar"
-                android:parentActivityName="com.piotr.weatherforpoznan.view.MainActivity_"/>
+                android:parentActivityName="com.piotr.weather.view.MainActivity_"/>
 
         <service
-                android:name=".service.NotificationIntentService"
+                android:name="com.piotr.weather.service.NotificationIntentService"
                 android:enabled="true"
                 android:exported="false"/>
 
-        <receiver android:name="com.piotr.weatherforpoznan.receiver.NotificationEventReceiver"/>
-        <receiver android:name="com.piotr.weatherforpoznan.receiver.NotificationServiceStarterReceiver">
+        <receiver android:name="com.piotr.weather.receiver.NotificationEventReceiver"/>
+        <receiver android:name="com.piotr.weather.receiver.NotificationServiceStarterReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
                 <action android:name="android.intent.action.TIMEZONE_CHANGED"/>

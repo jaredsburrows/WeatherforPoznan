@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Weather for Poznan</string>
+    <string name="app_name">Weather for Sunnyvale</string>
     <!--Activities-->
     <string name="title_activity_details">Details</string>
     <string name="title_activity_settings">Settings</string>
@@ -20,18 +20,13 @@
     <string name="pressure_desc">Pressure: </string>
     <string name="pressure_val"> hPa</string>
     <!--Wind-->
-    <string name="wind_speed"/>
-    <string name="wind_deg"/>
     <string name="wind_desc">Wind: </string>
     <string name="wind_val"> km/h E</string>
     <!--Description-->
     <string name="description">\Rain</string>
     <!--Main Activity values-->
-    <string name="latitude"/>
-    <string name="longitude"/>
     <string name="latitude_short">Lat: </string>
     <string name="longitude_short">Long: </string>
-    <string name="geo_coord"/>
     <!--Settings Activity values-->
     <string name="location">Location</string>
     <string name="imperial">Imperial</string>

@@ -1,7 +1,7 @@
-# weather-for-poznan 
+# weather-for-sunnyvale 
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![Build Status](https://travis-ci.org/jaredsburrows/WeatherforPoznan.svg)](https://travis-ci.org/jaredsburrows/WeatherforPoznan) 
+[![Build Status](https://travis-ci.org/jaredsburrows/weather-for-sunnyvale.svg)](https://travis-ci.org/jaredsburrows/weather-for-sunnyvale) 
 
 This is a fork of [WeatherforPoznan](http://www.github.com/piotrek1543/WeatherforPoznan) for Espresso testing examples for the following targets:
  - android-24
@@ -14,12 +14,17 @@ This is a fork of [WeatherforPoznan](http://www.github.com/piotrek1543/Weatherfo
  - android-16
 
 ## About
-Practice weather app. Uses OpenWeatherMap API, retrofit, gson, AndroidAnnotations and ActiveAndroid. 
+Weather app that uses:
+ - OpenWeatherMap API
+ - Retrofit
+ - Gson
+ - AndroidAnnotations
+ - ActiveAndroid 
 
-Includes tests: unit tests written with JUnit and Robolectric frameworks and automated UI tests written in Espresso.
-
-Available in two languages: Polish and English.
+Tested with:
+ - JUnit and Robolectric
+ - Automated UI tests written in Espresso
 
 ## Screenshots
-<img src="screenshots/device-2015-11-04-152556.png" height="500dp"/>
-<img src="screenshots/device-2015-11-04-152804.png" height="500dp"/>
+<img src="screenshots/screen1467589963.png" height="500dp"/>
+<img src="screenshots/screen1467589968.png" height="500dp"/>
