@@ -1,126 +1,124 @@
 package com.piotr.weatherforpoznan;
 
+import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
-
 import com.piotr.weatherforpoznan.utils.StringUtils;
-import com.piotr.weatherforpoznan.view.DetailsActivity;
 import com.piotr.weatherforpoznan.view.DetailsActivity_;
-
-import org.junit.Ignore;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.robolectric.Robolectric;
 import org.robolectric.RobolectricGradleTestRunner;
-import org.robolectric.annotation.Config;
+import org.robolectric.util.ActivityController;
 
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertTrue;
+import static org.robolectric.Robolectric.buildActivity;
 
 /**
  * @author piotr on 22.10.15.
  */
-@Ignore
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = 21)
 public class DetailsActivityTest {
+
+    private ActivityController<DetailsActivity_> mController;
+    private DetailsActivity_ sut;
+
+    @Before
+    public void setUp() throws Exception {
+
+        // Create new activity
+        this.mController = buildActivity(DetailsActivity_.class);
+        this.sut = this.mController.create().postCreate(null).start().resume().visible().get();
+    }
+
+    @After
+    public void tearDown() throws Exception {
+
+        // Destroy activity
+        this.mController.pause().stop().destroy();
+        this.sut.finish();
+    }
 
     @Test
     public void testOnCreateView() throws Exception {
-        DetailsActivity activity = Robolectric.setupActivity(DetailsActivity.class);
-        assertNotNull(activity);
+        assertNotNull(sut);
     }
 
     @Test
     public void testOnDayChange() {
-        DetailsActivity_ activity = Robolectric.setupActivity(DetailsActivity_.class);
-        String day = activity.getResources().getString(R.string.day);
-        activity.dDay.setText(day);
-        assertTrue(activity.dDay.getText().equals(day));
+        String day = sut.getResources().getString(R.string.day);
+        sut.dDay.setText(day);
+        assertTrue(sut.dDay.getText().equals(day));
     }
 
     @Test
     public void testOnDateChange() throws Exception {
-        DetailsActivity_ activity = Robolectric.setupActivity(DetailsActivity_.class);
-        String date = activity.getResources().getString(R.string.date);
-        activity.dDate.setText(date);
-        assertTrue(activity.dDate.getText().equals(date));
+        String date = sut.getResources().getString(R.string.date);
+        sut.dDate.setText(date);
+        assertTrue(sut.dDate.getText().equals(date));
     }
 
     @Test
     public void testOnCityNameChange() throws Exception {
-        DetailsActivity_ activity = Robolectric.setupActivity(DetailsActivity_.class);
-        String city_name = activity.getResources().getString(R.string.city_name);
-        activity.dCity.setText(city_name);
-        assertTrue(activity.dCity.getText().equals(city_name));
+        String city_name = sut.getResources().getString(R.string.city_name);
+        sut.dCity.setText(city_name);
+        assertTrue(sut.dCity.getText().equals(city_name));
     }
 
     @Test
     public void testOnHighTemperatureChange() throws Exception {
-        DetailsActivity_ activity = Robolectric.setupActivity(DetailsActivity_.class);
-        String high_temp = activity.getResources().getString(R.string.high_temp);
-        activity.dHighTemp.setText(high_temp);
-        assertTrue(activity.dHighTemp.getText().equals(high_temp));
+        String high_temp = sut.getResources().getString(R.string.high_temp);
+        sut.dHighTemp.setText(high_temp);
+        assertTrue(sut.dHighTemp.getText().equals(high_temp));
     }
 
     @Test
     public void testOnLowTemperatureChange() throws Exception {
-        DetailsActivity_ activity = Robolectric.setupActivity(DetailsActivity_.class);
-        String low_temp = activity.getResources().getString(R.string.low_temp);
-        activity.dLowTemp.setText(low_temp);
-        assertTrue(activity.dLowTemp.getText().equals(low_temp));
+        String low_temp = sut.getResources().getString(R.string.low_temp);
+        sut.dLowTemp.setText(low_temp);
+        assertTrue(sut.dLowTemp.getText().equals(low_temp));
     }
 
     @Test
     public void testOnHumidityValueChange() throws Exception {
-        DetailsActivity_ activity = Robolectric.setupActivity(DetailsActivity_.class);
-        String humidity_val = activity.getResources().getString(R.string.humidity_val);
-        activity.dHumidityVal.setText(humidity_val);
-        assertTrue(activity.dHumidityVal.getText().equals(humidity_val));
+        String humidity_val = sut.getResources().getString(R.string.humidity_val);
+        sut.dHumidityVal.setText(humidity_val);
+        assertTrue(sut.dHumidityVal.getText().equals(humidity_val));
     }
 
     @Test
     public void testonPressureValueChange() throws Exception {
-        DetailsActivity_ activity = Robolectric.setupActivity(DetailsActivity_.class);
-        String pressure_val = activity.getResources().getString(R.string.pressure_val);
-        activity.dPressureVal.setText(pressure_val);
-        assertTrue(activity.dPressureVal.getText().equals(pressure_val));
+        String pressure_val = sut.getResources().getString(R.string.pressure_val);
+        sut.dPressureVal.setText(pressure_val);
+        assertTrue(sut.dPressureVal.getText().equals(pressure_val));
     }
 
     @Test
     public void testOnWindValueChange() throws Exception {
-        DetailsActivity_ activity = Robolectric.setupActivity(DetailsActivity_.class);
-        String wind_val = activity.getResources().getString(R.string.wind_val);
-        activity.dWindVal.setText(wind_val);
-        assertTrue(activity.dWindVal.getText().equals(wind_val));
+        String wind_val = sut.getResources().getString(R.string.wind_val);
+        sut.dWindVal.setText(wind_val);
+        assertTrue(sut.dWindVal.getText().equals(wind_val));
     }
 
     @Test
     public void testOnIconDrawableChange() throws Exception {
-        DetailsActivity_ activity = Robolectric.setupActivity(DetailsActivity_.class);
-        activity.dIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.art_clear));
-        assertTrue(activity.dIcon.getDrawable()
-                .equals(ContextCompat.getDrawable(activity, R.drawable.art_clear)));
+        final Drawable drawable = ContextCompat.getDrawable(sut, R.drawable.art_clear);
+        sut.dIcon.setImageDrawable(drawable);
+        assertTrue(sut.dIcon.getDrawable().equals(drawable));
     }
 
     @Test
     public void testOnDescriptionChange() throws Exception {
-        DetailsActivity_ activity = Robolectric.setupActivity(DetailsActivity_.class);
-        String description = activity.getResources().getString(R.string.description);
-        activity.dDescription.setText(StringUtils.capitalizeString(description));
-        assertTrue(activity.dDescription.getText().equals(StringUtils.capitalizeString(description)));
+        String description = sut.getResources().getString(R.string.description);
+        sut.dDescription.setText(StringUtils.capitalizeString(description));
+        assertTrue(sut.dDescription.getText().equals(StringUtils.capitalizeString(description)));
     }
-
 
     @Test
     public void testOnClick() throws Exception {
-        DetailsActivity_ activity = Robolectric.setupActivity(DetailsActivity_.class);
-        if (activity != null) {
-            activity.findViewById(R.id.fab).performClick();
-            assertTrue(activity.fab.isClickable());
-            activity.fab.performClick();
-        }
+        sut.findViewById(R.id.fab).performClick();
+        assertTrue(sut.fab.isClickable());
+        sut.fab.performClick();
     }
-
-    //TODO: Write more unit tests
-
 }

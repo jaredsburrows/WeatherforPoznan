@@ -3,12 +3,15 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![Build Status](https://travis-ci.org/jaredsburrows/WeatherforPoznan.svg)](https://travis-ci.org/jaredsburrows/WeatherforPoznan) 
 
-This is a fork of [WeatherforPozan](http://www.github.com/piotrek1543/WeatherforPoznan) for Espresso testing examples for the following targets:
- - android-16 
- - android-17 
- - android-18 
- - android-19 
- - android-21 
+This is a fork of [WeatherforPoznan](http://www.github.com/piotrek1543/WeatherforPoznan) for Espresso testing examples for the following targets:
+ - android-24
+ - android-23
+ - android-22
+ - android-21
+ - android-19
+ - android-18
+ - android-17
+ - android-16
 
 ## About
 Practice weather app. Uses OpenWeatherMap API, retrofit, gson, AndroidAnnotations and ActiveAndroid. 

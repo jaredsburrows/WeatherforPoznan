@@ -1,60 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    package="com.piotr.weatherforpoznan"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.piotr.weatherforpoznan"
+          android:installLocation="auto">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
-        android:name=".WeatherApplication"
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+            android:name="com.piotr.weatherforpoznan.WeatherApplication"
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
         <activity
-            android:name=".view.MainActivity_"
-            android:label="@string/app_name">
+                android:name="com.piotr.weatherforpoznan.view.MainActivity_"
+                android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <!-- Notice this tag which provides the database version -->
         <meta-data
-            android:name="AA_DB_NAME"
-            android:value="Database.db" />
+                android:name="AA_DB_NAME"
+                android:value="Database.db"/>
         <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.piotr.weatherforpoznan.view.DetailsActivity_"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.piotr.weatherforpoznan.view.DetailsActivity_"/>
 
         <activity
-            android:name=".view.DetailsActivity_"
-            android:label="@string/title_activity_details"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".view.MainActivity_"/>
+                android:name="com.piotr.weatherforpoznan.view.DetailsActivity_"
+                android:label="@string/title_activity_details"
+                android:theme="@style/AppTheme.NoActionBar"
+                android:parentActivityName="com.piotr.weatherforpoznan.view.MainActivity_"/>
 
         <service
-            android:name=".service.NotificationIntentService"
-            android:enabled="true"
-            android:exported="false"/>
+                android:name=".service.NotificationIntentService"
+                android:enabled="true"
+                android:exported="false"/>
 
-        <receiver android:name=".receiver.NotificationEventReceiver"/>
-        <receiver android:name=".receiver.NotificationServiceStarterReceiver">
+        <receiver android:name="com.piotr.weatherforpoznan.receiver.NotificationEventReceiver"/>
+        <receiver android:name="com.piotr.weatherforpoznan.receiver.NotificationServiceStarterReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
                 <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
                 <action android:name="android.intent.action.TIME_SET"/>
             </intent-filter>
         </receiver>
-
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="a9c7e38bb2356fc4872464570cc2154518830002" />
     </application>
 
 </manifest>

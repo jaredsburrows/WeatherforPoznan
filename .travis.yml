@@ -8,22 +8,25 @@ env:
     - MALLOC_ARENA_MAX=2
     - ADB_INSTALL_TIMEOUT=8
   matrix:
-    - ANDROID_TARGET=android-16
-    - ANDROID_TARGET=android-17
-    - ANDROID_TARGET=android-18
-    - ANDROID_TARGET=android-19
-    - ANDROID_TARGET=android-21
+    - ANDROID_TARGET=android-24
+    - ANDROID_TARGET=android-23
     - ANDROID_TARGET=android-22
+    - ANDROID_TARGET=android-21
+    - ANDROID_TARGET=android-19
+    - ANDROID_TARGET=android-18
+    - ANDROID_TARGET=android-17
+
 matrix:
   allow_failures:
-    - env: ANDROID_TARGET=android-21
-    - env: ANDROID_TARGET=android-22
+    - env: ANDROID_TARGET=android-24
+    - env: ANDROID_TARGET=android-23
+    - env: ANDROID_TARGET=android-16
 
 install:
   - echo y | android update sdk -u -a -t tools
   - echo y | android update sdk -u -a -t platform-tools
   - echo y | android update sdk -u -a -t build-tools-24.0.0
-  - echo y | android update sdk -u -a -t android-24
+  - echo y | android update sdk -u -a -t android-24,$ANDROID_TARGET
   - echo y | android update sdk -u -a -t extra-google-m2repository
   - echo y | android update sdk -u -a -t extra-google-google_play_services
   - echo y | android update sdk -u -a -t extra-android-support
@@ -41,7 +44,7 @@ before_script:
   - adb shell input keyevent 82 &
 
 script:
-  - ./gradlew check connectedAndroidTest
+  - ./gradlew clean testDebug connectedDebugAndroidTest -Dscan --configure-on-demand --daemon --parallel --stacktrace
 
 notifications:
   email: false
