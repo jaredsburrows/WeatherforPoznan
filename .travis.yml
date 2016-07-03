@@ -3,14 +3,32 @@ language: android
 jdk:
  - oraclejdk8
 
-android:
-  components:
-    - platform-tools
-    - tools
-    - android-23
-    - build-tools-23.0.3
-    - extra-android-m2repository
-    - sys-img-armeabi-v7a-$ANDROID_TARGET
+env:
+  global:
+    - MALLOC_ARENA_MAX=2
+    - ADB_INSTALL_TIMEOUT=8
+  matrix:
+    - ANDROID_TARGET=android-16
+    - ANDROID_TARGET=android-17
+    - ANDROID_TARGET=android-18
+    - ANDROID_TARGET=android-19
+    - ANDROID_TARGET=android-21
+    - ANDROID_TARGET=android-22
+matrix:
+  allow_failures:
+    - env: ANDROID_TARGET=android-21
+    - env: ANDROID_TARGET=android-22
+
+install:
+  - echo y | android update sdk -u -a -t tools
+  - echo y | android update sdk -u -a -t platform-tools
+  - echo y | android update sdk -u -a -t build-tools-24.0.0
+  - echo y | android update sdk -u -a -t android-24
+  - echo y | android update sdk -u -a -t extra-google-m2repository
+  - echo y | android update sdk -u -a -t extra-google-google_play_services
+  - echo y | android update sdk -u -a -t extra-android-support
+  - echo y | android update sdk -u -a -t extra-android-m2repository
+  - echo y | android update sdk -u -a -t sys-img-armeabi-v7a-$ANDROID_TARGET
 
 before_script:
   - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi armeabi-v7a --sdcard 200M
@@ -25,15 +43,6 @@ before_script:
 script:
   - ./gradlew check connectedAndroidTest
 
-env:
-  global:
-    - ADB_INSTALL_TIMEOUT=8
-  matrix:
-    - ANDROID_TARGET=android-17
-    - ANDROID_TARGET=android-19
-    - ANDROID_TARGET=android-21
-
-
 notifications:
   email: false
 
@@ -41,4 +50,5 @@ sudo: required
 
 cache:
   directories:
+    - $HOME/.m2
     - $HOME/.gradle

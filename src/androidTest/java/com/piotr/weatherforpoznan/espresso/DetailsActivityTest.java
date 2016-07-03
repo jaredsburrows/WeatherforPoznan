@@ -27,7 +27,6 @@ import static org.hamcrest.Matchers.not;
 /**
  * @author Piotr on 17.10.15.
  */
-@Ignore
 @RunWith(AndroidJUnit4.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DetailsActivityTest {
@@ -92,6 +91,7 @@ public class DetailsActivityTest {
 
     }
 
+    @Ignore
     @Test
     public void checkIfAllDetailsActivityViewsAreDisplayed() throws InterruptedException {
         for (int id : allDetailsActivityViewsIdis) onView(withId(id)).check(matches(isDisplayed()));

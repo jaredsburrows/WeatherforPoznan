@@ -26,10 +26,10 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.isEnabled;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static android.support.test.espresso.matcher.ViewMatchers.isEnabled;
 import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.Matchers.not;
 
-@Ignore
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
 
@@ -45,6 +45,7 @@ public class MainActivityTest {
         onView(withId(R.id.swipeRefresh)).check(matches(isEnabled())).perform(swipeDown());
     }
 
+    @Ignore
     @Test
     public void swipeToTheLastElementOfForecastAdapter() throws InterruptedException {
         onView(withId(R.id.mListView)).check(matches(isDisplayed()))
