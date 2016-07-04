@@ -11,8 +11,7 @@
     <string name="date">2015–10-05 09:30:00</string>
     <string name="city_name">City</string>
     <!--Temperature-->
-    <string name="high_temp"> °C</string>
-    <string name="low_temp"> °C</string>
+    <string name="temp"> °F</string>
     <!--Humidity-->
     <string name="humidity_desc">Humidity: </string>
     <string name="humidity_val"> %</string>
@@ -42,7 +41,6 @@
     <!--OpenWeatherMAp API Key-->
     <string name="API_ID">cf28f00904e59e7ba0fc080879080861</string>
     <!-- Language of phone-->
-    <string name="lang">en</string>
     <string name="operation_successful">The operation completed successfully</string>
     <string name="error_download_data">Error caused when trying to download data!</string>
     <string name="error_again_message">Try again</string>

@@ -79,7 +79,7 @@
                     android:paddingLeft="@dimen/dimen_small"
                     android:paddingRight="@dimen/dimen_small"
                     android:paddingTop="@dimen/dimen_small"
-                    android:text="@string/high_temp"
+                    android:text="@string/temp"
                     android:textSize="@dimen/abc_text_size_medium_material" />
 
                 <TextView
@@ -91,7 +91,7 @@
                     android:paddingLeft="@dimen/dimen_small"
                     android:paddingRight="@dimen/dimen_small"
                     android:paddingTop="@dimen/dimen_small"
-                    android:text="@string/low_temp"
+                    android:text="@string/temp"
                     android:textSize="@dimen/abc_text_size_small_material" />
             </LinearLayout>
         </RelativeLayout>

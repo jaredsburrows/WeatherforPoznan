@@ -33,33 +33,6 @@ public class DetailsActivityTest {
     @Rule
     public ActivityTestRule<MainActivity_> mRule = new ActivityTestRule<>(MainActivity_.class);
 
-    private final int[] allDetailsActivityViewsIdis = {
-            R.id.dItem,
-            R.id.dDayAndDate,
-            R.id.dDay,
-            R.id.dDate,
-            R.id.dCity,
-            R.id.dTempAndIcon,
-            R.id.dTemperature,
-            R.id.dHighTemp,
-            R.id.dLowTemp,
-            R.id.dIconLayout,
-            R.id.dIcon,
-            R.id.dDescriptionLayout,
-            R.id.dDescription,
-            R.id.dForecast,
-            R.id.dHumidityLayout,
-            R.id.dHumidityDesc,
-            R.id.dHumidityVal,
-            R.id.dPressureLayout,
-            R.id.dPressureDesc,
-            R.id.dPressureVal,
-            R.id.dWindLayout,
-            R.id.dWindDesc,
-            R.id.dWindVal
-
-    };
-
     private final int[] detailsActivityTextViewsIdis = {
             R.id.dDay,
             R.id.dDate,
@@ -68,39 +41,27 @@ public class DetailsActivityTest {
             R.id.dDescription,
             R.id.dHumidityVal,
             R.id.dPressureVal,
-            R.id.dWindVal,
-
+            R.id.dWindVal
     };
 
     private final int[] detailsActivityTextViewsDefaultValues = {
             R.string.day,
             R.string.date,
-            R.string.high_temp,
-            R.string.low_temp,
+            R.string.temp,
             R.string.description,
             R.string.humidity_val,
             R.string.pressure_val,
-            R.string.wind_val,
-
+            R.string.wind_val
     };
 
     @Before
     public void goToDetailsActivity() {
         onView(withId(R.id.mListView)).perform(click());
-
-    }
-
-    @Ignore
-    @Test
-    public void checkIfAllDetailsActivityViewsAreDisplayed() {
-        for (int id : allDetailsActivityViewsIdis) onView(withId(id)).check(matches(isDisplayed()));
-
     }
 
     @Test
     public void checkIfDetailsActivityImageHasNoDefaultImage() {
         onView(withId(R.id.dIcon)).check(matches(not(withId(R.drawable.art_default))));
-
     }
 
     @Test
@@ -108,14 +69,12 @@ public class DetailsActivityTest {
         for (int viewId : detailsActivityTextViewsIdis)
             for (int valueId : detailsActivityTextViewsDefaultValues)
                 onView(withId(viewId)).check(matches(not(withText(valueId))));
-
     }
 
     @Test
     public void checkIfSnackBarIsProperlyDisplayed() {
         onView(withId(R.id.fab)).perform(click());
         onView(withText(R.string.function_not_available)).check(matches(isDisplayed()));
-
     }
 
     @Test

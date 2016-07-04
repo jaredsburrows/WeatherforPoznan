@@ -68,14 +68,14 @@ public class DetailsActivityTest {
 
     @Test
     public void testOnHighTemperatureChange() throws Exception {
-        String high_temp = sut.getResources().getString(R.string.high_temp);
+        String high_temp = sut.getResources().getString(R.string.temp);
         sut.dHighTemp.setText(high_temp);
         assertTrue(sut.dHighTemp.getText().equals(high_temp));
     }
 
     @Test
     public void testOnLowTemperatureChange() throws Exception {
-        String low_temp = sut.getResources().getString(R.string.low_temp);
+        String low_temp = sut.getResources().getString(R.string.temp);
         sut.dLowTemp.setText(low_temp);
         assertTrue(sut.dLowTemp.getText().equals(low_temp));
     }

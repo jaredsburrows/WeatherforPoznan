@@ -72,9 +72,7 @@ public class DetailsActivity extends AppCompatActivity {
     @StringRes
     String city_name;
     @StringRes
-    String high_temp;
-    @StringRes
-    String low_temp;
+    String temp;
     @StringRes
     String humidity_val;
     @StringRes
@@ -111,8 +109,8 @@ public class DetailsActivity extends AppCompatActivity {
         dDay.setText(day);
         dDate.setText(date);
         dCity.setText(city_name);
-        dHighTemp.setText(high_temp);
-        dLowTemp.setText(low_temp);
+        dHighTemp.setText(temp);
+        dLowTemp.setText(temp);
         dHumidityVal.setText(humidity_val);
         dPressureVal.setText(pressure_val);
         dWindVal.setText(wind_val);
@@ -128,8 +126,8 @@ public class DetailsActivity extends AppCompatActivity {
         //NOTE: For development purposes I changed default city_name in strings.xml
         Main main = item.getMain();
         Wind wind = item.getWind();
-        high_temp = Math.round(main.getTempMax()) + " °C";
-        low_temp = Math.round(main.getTempMin()) + " °C";
+        temp = Math.round(main.getTempMax()) + " °C";
+        temp = Math.round(main.getTempMin()) + " °C";
         humidity_val = Math.round(main.getHumidity()) + " %";
         pressure_val = Math.round(main.getPressure()) + " hPa";
         String wind_speed = Math.round(wind.getSpeed()) + " km/h";

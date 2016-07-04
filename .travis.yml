@@ -14,12 +14,14 @@ env:
     - ANDROID_TARGET=android-19
     - ANDROID_TARGET=android-18
     - ANDROID_TARGET=android-17
+    - ANDROID_TARGET=android-16
 
 matrix:
   allow_failures:
     - env: ANDROID_TARGET=android-23
     - env: ANDROID_TARGET=android-21
     - env: ANDROID_TARGET=android-17
+    - env: ANDROID_TARGET=android-16
 
 install:
   - echo y | android update sdk -u -a -t tools

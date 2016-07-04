@@ -3,10 +3,12 @@ package com.piotr.weather;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import com.piotr.weather.view.MainActivity_;
+import org.junit.FixMethodOrder;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
@@ -26,6 +28,7 @@ import static org.hamcrest.Matchers.not;
  * @author Piotr on 16.10.2015.
  */
 @RunWith(AndroidJUnit4.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MainActivityTest {
 
     @Rule
@@ -126,13 +129,13 @@ public class MainActivityTest {
     public void checkIfForecastItemTemperatureMaxHasADefaultValue() {
         onData(anything()).inAdapterView(withId(R.id.mListView)).atPosition(testPosition).
                 onChildView(withId(R.id.forecastItemTemperatureMax))
-                .check(matches(not(withText(R.string.high_temp))));
+                .check(matches(not(withText(R.string.temp))));
     }
 
     @Test
     public void checkIForecastItemTemperatureMinHasADefaultValue() {
         onData(anything()).inAdapterView(withId(R.id.mListView)).atPosition(testPosition).
                 onChildView(withId(R.id.forecastItemTemperatureMin))
-                .check(matches(not(withText(R.string.low_temp))));
+                .check(matches(not(withText(R.string.temp))));
     }
 }
