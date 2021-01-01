@@ -1,7 +1,7 @@
 # weather-for-sunnyvale 
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![Build Status](https://travis-ci.org/jaredsburrows/weather-for-sunnyvale.svg)](https://travis-ci.org/jaredsburrows/weather-for-sunnyvale) 
+[![Build](https://github.com/jaredsburrows/weather-for-sunnyvale/workflows/build/badge.svg)](https://github.com/jaredsburrows/weather-for-sunnyvale/actions)
 [![Twitter Follow](https://img.shields.io/twitter/follow/jaredsburrows.svg?style=social)](https://twitter.com/jaredsburrows)
 
 This is a fork of [WeatherforPoznan](http://www.github.com/piotrek1543/WeatherforPoznan) for Espresso testing examples for the following targets:
